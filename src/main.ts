@@ -1,6 +1,11 @@
 import './style.css';
-import { CubeScene } from './scenes/examples/CubeScene';
+import { GalaxyScene } from './scenes/examples/AudioScene';
 
-// Create and start the scene
-const scene = new CubeScene();
-scene.start(); 
+window.addEventListener('DOMContentLoaded', () => {
+    try {
+        const scene = new GalaxyScene();
+        scene.start();
+    } catch (error) {
+        console.error('Failed to initialize scene:', error);
+    }
+}); 

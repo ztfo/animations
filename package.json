@@ -14,6 +14,11 @@
     "vite": "^5.0.0"
   },
   "dependencies": {
+    "@react-three/drei": "^9.97.0",
+    "@types/dat.gui": "^0.7.13",
+    "cannon-es": "^0.20.0",
+    "dat.gui": "^0.7.9",
+    "postprocessing": "^6.34.1",
     "three": "^0.162.0"
   }
-} 
+}

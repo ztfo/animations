@@ -11,12 +11,23 @@ export abstract class BaseScene {
       75,
       window.innerWidth / window.innerHeight,
       0.1,
-      1000
+      50000  // Increased far plane for galaxy
     );
     
-    this.renderer = new THREE.WebGLRenderer({ antialias: true });
+    this.renderer = new THREE.WebGLRenderer({ 
+      antialias: true,
+      alpha: true,
+      powerPreference: "high-performance"
+    });
+    this.renderer.setPixelRatio(window.devicePixelRatio);
     this.renderer.setSize(window.innerWidth, window.innerHeight);
-    document.getElementById('app')?.appendChild(this.renderer.domElement);
+    this.renderer.setClearColor(0x000000, 1); // Set clear black background
+    
+    const container = document.getElementById('app');
+    if (!container) {
+      throw new Error("Container element 'app' not found");
+    }
+    container.appendChild(this.renderer.domElement);
 
     // Handle window resize
     window.addEventListener('resize', this.onWindowResize.bind(this));
